@@ -1,6 +1,10 @@
 Nav{
-background-color: #e3f2fd;
+background-color:#044cf47c;
 }
 a{
 color:black;
+font-weight: bold;
+}
+a.nav-link{
+    font-weight: bold;
 }

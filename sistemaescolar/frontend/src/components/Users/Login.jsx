@@ -12,7 +12,6 @@ import {
   MDBCheckbox
 }
 from 'mdb-react-ui-kit'
-import Nav from '../template/Nav'
 function App() {
   return (
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
@@ -21,7 +20,7 @@ function App() {
       <MDBInput wrapperClass='mb-4' label='Senha' id='form2' type='password'/>
 
 
-      <MDBBtn className="mb-4">Sign in</MDBBtn>
+      <MDBBtn className="mb-4">Entrar</MDBBtn>
 
   
 
