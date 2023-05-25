@@ -5,9 +5,9 @@ import Login from '../components/Users/Login'
 import Tabela from '../components/Users/Tabela'
 import Cadastro from '../components/Users/Cadastro'
 export default props =>
-<Routes>
+<Routes basename={process.env.PUBLIC_URL}>
     <Route exact path="/" element ={<Home/>}  />
     <Route path="Login" element ={<Login/>}  />
     <Route path="Tabela" element ={<Tabela/>}  />
-    <Route path="Cadastro" element ={<Cadastro/>}  />
+    <Route path="Cadastro" element ={<Cadastro/>}/>
 </Routes>

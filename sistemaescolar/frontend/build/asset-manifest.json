@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/escola/static/css/main.3cad4a0e.css",
+    "main.js": "/escola/static/js/main.59ff328b.js",
+    "static/js/496.2e7f66eb.chunk.js": "/escola/static/js/496.2e7f66eb.chunk.js",
+    "index.html": "/escola/index.html",
+    "main.3cad4a0e.css.map": "/escola/static/css/main.3cad4a0e.css.map",
+    "main.59ff328b.js.map": "/escola/static/js/main.59ff328b.js.map",
+    "496.2e7f66eb.chunk.js.map": "/escola/static/js/496.2e7f66eb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3cad4a0e.css",
+    "static/js/main.59ff328b.js"
+  ]
+}
