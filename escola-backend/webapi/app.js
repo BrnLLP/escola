@@ -21,49 +21,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
-// Generate
-const jwt = require('jsonwebtoken');
-
-function generateToken(userId) {
-  const token = jwt.sign({ userId }, 'seuSegredoAqui', { expiresIn: '1h' });
-  return token;
-}
-
-function authenticate(req, res, next) {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ erro: 'Token de autenticação não fornecido' });
-  }
-
-  try {
-    const decoded = jwt.verify(token, 'seuSegredoAqui');
-    req.userId = decoded.userId;
-    next();
-  } catch (ex) {
-    console.log(ex);
-    res.status(401).json({ erro: 'Token de autenticação inválido' });
-  }
-}
-
-// // Aplicar o middleware em todas as rotas que exigem autenticação
-// router.use(authenticate);
-
-
-// GET dog
-router.get('/dog', async function(req, res, next) {
-  try{
-    const apidog = await fetch('https://dog.ceo/api/breed/hound/list');
-    res.json(await apidog.json());
-  }
-  catch(ex){
-    console.log(ex);
-    res.status(400).json({erro: `${ex}`});
-  }
-}) 
-
 /* GET aluno */
-router.get('/aluno/:id?', authenticate, async function(req, res, next) {
+router.get('/aluno/:id?', async function(req, res, next) {
     try{
       const db = await connect();
       if(req.params.id)
@@ -78,7 +37,7 @@ router.get('/aluno/:id?', authenticate, async function(req, res, next) {
 })
 
 // POST /aluno
-router.post('/aluno', authenticate, async function(req, res, next){
+router.post('/aluno', async function(req, res, next){
     try{
       const aluno = req.body;
       const db = await connect();
@@ -92,23 +51,17 @@ router.post('/aluno', authenticate, async function(req, res, next){
 
 // POST /login
 router.post('/login', async function(req, res, next) {
-  try {
-    const { email, password } = req.body;
-    
-    // Verificar as credenciais do usuário no banco de dados
-    const db = await connect();
-    const user = await db.collection("users").findOne({ email, password });
-    
-    if (!user) {
-      return res.status(401).json({ erro: 'Credenciais inválidas' });
-    }
-    
-    // Gerar e retornar um token de autenticação para o cliente
-    const token = generateToken(user._id);
-    res.json({ token });
-  } catch (ex) {
-    console.log(ex);
-    res.status(400).json({ erro: `${ex}` });
+  //try {
+  const { email, password } = req.body;
+  
+  // Verificar as credenciais do usuário no banco de dados
+  const db = await connect();
+  const user = await db.collection("users").findOne({ email, password });
+  
+  if (!user) {
+    return res.status(401).json({ erro: 'Credenciais inválidas' });
+  } else {
+    res.json({message: 'Usuário logado com sucesso'});
   }
 });
 
