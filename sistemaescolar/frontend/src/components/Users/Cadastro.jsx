@@ -15,7 +15,10 @@ import {
 from 'mdb-react-ui-kit'
 function App() {
   return (
-    <div id = "output">
+    <html>
+    <body>
+      <script src='Cadastro.js'/>
+    <div id='output'>
     <form id='form'>
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
 
@@ -25,39 +28,15 @@ function App() {
       <MDBInput wrapperClass='mb-4' label='CPF' id='cpf' type='text'/>
 
 
-      <MDBBtn className="mb-4" id="btn">Cadastrar</MDBBtn>
+      <MDBBtn className="mb-4" id="btn" onclick='Cadastro()'>Cadastrar</MDBBtn>
 
   
 
     </MDBContainer>
     </form>
     </div>
-    <script> 
-    const form = document.getElementById('form');
-    const usuarioInput = document.getElementById('usuario');
-    const senhaInput = document.getElementById('senha');
-    const matriculaInput = document.getElementById('matricula');
-    const cpfInput = document.getElementById('cpf');
-  
-    btn.addEventListener("click", () => {
-     const usuario = usuarioInput.value;
-     const senha = senhaInput.value;
-     const matricula = matriculaInput.value;
-     const cpf = cpfInput.value;
-      
-     axios.post(''https://localhost:3000/aluno') , {
-          usuario: matricula,
-          senha : senha,
-          matricula : parseInt(matricula),
-          cpf : cpf
-                })
-     .then((response) => {
-           output.innterHTML = '<div> Cadastro realizado com sucesso  </div>'
-    }).catch(function (err){
-      document.getElementById('output')>innerHTML = '<div> Cadastro realizado com sucesso  </div>'
-    })
-    })
-    </script>
+    </body>
+    </html>
   );
 }
 

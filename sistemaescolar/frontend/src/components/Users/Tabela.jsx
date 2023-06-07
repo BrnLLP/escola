@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default props =>
 <div>
+<script src="TabelaScript.Js"/>
 <table class="table">
 <thead>
         <tr>
@@ -17,25 +18,4 @@ export default props =>
 
 </tbody>
 </table>
-{/* COMENTÁRIO JSX 
-<script>
-    axios.get('http://localhost:3000/pessoa')
-        .then(function (response) {
-            document.getElementById('exibir').innerHTML=response.data.map(function (pessoa) {
-                return(
-                    '<tr>' +
-                    '<td>' + pessoa.matricula + '</td>' +
-                    '<td>' + pessoa.nome + '</td>' +
-                    '<td>' + pessoa.cargo + '</td>' +
-                    '</tr>'
-                );
-            }).join('')
-        })
-            .catch(function (err)  {
-                document.getElementById('pessoa').innerHTML = '<li class="text-danger">' + err.message + '</li>'
-            });
-            
-      
-</script>
-        */}
 </div>
