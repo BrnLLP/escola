@@ -44,8 +44,9 @@
                 document.getElementById('matricula').readOnly   =   true;
                 document.getElementById('nome').value           =   response.data.nome;
                 document.getElementById('disciplina').value     =   response.data.disciplina;
-                document.getElementById('senha').value     =        response.data.senha;
-                 document.getElementById('senha').readOnly     =    true
+                document.getElementById('email').value          =   response.data.email;
+                document.getElementById('senha').value          =   response.data.senha;
+                 document.getElementById('senha').readOnly      =   true
 
             })
             .catch(function (err) {
@@ -103,6 +104,10 @@
                         <input type="text" class="form-control" id="nome">
                     </div>
                     <div class="mb-3">
+                        <label for="email" class="form-label">E-Mail</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
                         <label for="senha" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="senha">
                     </div>
@@ -127,6 +132,7 @@
         const _idInput        =   document.getElementById("_id");
         const matriculaInput  =   document.getElementById("matricula");
         const nomeInput       =   document.getElementById("nome");
+        const emailInput       =   document.getElementById("email");
         const disciplinaInput =   document.getElementById("disciplina");
         const senhaInput =   document.getElementById("senha");
 
@@ -135,7 +141,8 @@
             const matricula   =   matriculaInput.value;
             const nome        =   nomeInput.value;
             const disciplina  =   disciplinaInput.value;
-            const senha  =   senha.value;
+            const senha       =   senhaInput.value;
+            const email       =   emailInput.value;
 
             if (_id === '') {
 
@@ -144,7 +151,8 @@
                     matricula: parseInt(matricula),
                     nome: nome,
                     disciplina: disciplina,
-                    senha : senha
+                    senha : senha,
+                    email : email
 
                 })
                 .then((response) => {
