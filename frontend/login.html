@@ -32,5 +32,34 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script> 
+     const emailInput       =   document.getElementById("email");
+     const senhaInput = documento.getById("senha");
+   btnLogin.addEventListener('Click', () => {
+        alert("debug click")
+        const senha       =   senhaInput.value;
+         const email       =   emailInput.value;
+         axios.post("http://localhost:3000/login", {
+            email: email,
+            senha: senha
+         })
+         .then((response) => {
+             // Lidar com a resposta de sucesso
+            output.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>Autenticação bem-sucedida!</strong>
+                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                               </div>`;
+
+         Redirecionar para a página principal ou executar outras ações necessárias
+         })
+         .catch((error) => {
+             // Lidar com a resposta de erro
+            output.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Erro na autenticação:</strong> ${error.message}
+                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>`;
+        // });
+    });  
+  
 </body>
 </html>
