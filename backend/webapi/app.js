@@ -52,11 +52,11 @@ router.post('/aluno', async function(req, res, next){
 // POST /login
 router.post('/login', async function(req, res, next) {
   //try {
-  const { email, password } = req.body;
+  const { email, senha } = req.body;
   
   // Verificar as credenciais do usuário no banco de dados
   const db = await connect();
-  const user = await db.collection("aluno").findOne({ email, password });
+  const user = await db.collection("aluno").findOne({ email, senha });
   
   if (!user) {
     return res.status(401).json({ erro: 'Credenciais inválidas' });
