@@ -56,7 +56,7 @@ router.post('/login', async function(req, res, next) {
   
   // Verificar as credenciais do usuário no banco de dados
   const db = await connect();
-  const user = await db.collection("users").findOne({ email, password });
+  const user = await db.collection("aluno").findOne({ email, password });
   
   if (!user) {
     return res.status(401).json({ erro: 'Credenciais inválidas' });
@@ -65,29 +65,29 @@ router.post('/login', async function(req, res, next) {
   }
 });
 
-// POST /signup
-router.post('/signup', async function(req, res, next) {
-  try {
-    const { email, password } = req.body;
+// // POST /signup
+// router.post('/signup', async function(req, res, next) {
+//   try {
+//     const { email, password } = req.body;
 
-    // Verificar se o usuário já está cadastrado no banco de dados
-    const db = await connect();
-    const existingUser = await db.collection("users").findOne({ email });
+//     // Verificar se o usuário já está cadastrado no banco de dados
+//     const db = await connect();
+//     const existingUser = await db.collection("users").findOne({ email });
 
-    if (existingUser) {
-      return res.status(409).json({ erro: 'Usuário já cadastrado' });
-    }
+//     if (existingUser) {
+//       return res.status(409).json({ erro: 'Usuário já cadastrado' });
+//     }
 
-    // Cadastrar o novo usuário no banco de dados
-    const newUser = { email, password };
-    const result = await db.collection("users").insertOne(newUser);
+//     // Cadastrar o novo usuário no banco de dados
+//     const newUser = { email, password };
+//     const result = await db.collection("users").insertOne(newUser);
 
-    res.json({ message: 'Usuário cadastrado com sucesso' });
-  } catch (ex) {
-    console.log(ex);
-    res.status(400).json({ erro: `${ex}` });
-  }
-});
+//     res.json({ message: 'Usuário cadastrado com sucesso' });
+//   } catch (ex) {
+//     console.log(ex);
+//     res.status(400).json({ erro: `${ex}` });
+//   }
+// });
 
 // PUT /aluno/{id}
 router.put('/aluno/:id', async function(req, res, next){
