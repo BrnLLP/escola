@@ -44,6 +44,8 @@
                 document.getElementById('matricula').readOnly   =   true;
                 document.getElementById('nome').value           =   response.data.nome;
                 document.getElementById('disciplina').value     =   response.data.disciplina;
+                document.getElementById('senha').value     =        response.data.senha;
+                 document.getElementById('senha').readOnly     =    true
 
             })
             .catch(function (err) {
