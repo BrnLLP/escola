@@ -2,7 +2,7 @@
 const {MongoClient, ObjectId} = require("mongodb");
 async function connect(){
   if(global.db) return global.db;
-    const conn = await MongoClient.connect("mongodb+srv://dev-web01:NsXYphuwOPYnoXcU@dev-web01.k3qvh9b.mongodb.net/");
+    const conn = await MongoClient.connect("mongodb+srv://devcloud:DevCloud@cluster0.xgbzj7z.mongodb.net/");
   if(!conn) return new Error("Can't connect");
     global.db = await conn.db("unifor");
   return global.db;
